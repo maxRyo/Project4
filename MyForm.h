@@ -13,6 +13,7 @@ namespace Project4 {
         {
          
             InitializeComponent();
+            //ファイルの読み込み操作
             LoadFile();
             Index = 0;
         }
@@ -36,6 +37,7 @@ namespace Project4 {
     private: System::Windows::Forms::Button^ button2;
 
     private:
+        //デザイナ変数
         System::ComponentModel::Container^ components;
         int Index;
 
@@ -144,6 +146,7 @@ namespace Project4 {
             this->ResumeLayout(false);
         }
 #pragma endregion
+        //読み込み処理の関数
         void LoadDataFromFile(String^ fileName, array<String^, 2>^ dataArray, int% currentIndex)
         {
             Index = 0; // インデックスをリセット
@@ -178,32 +181,33 @@ namespace Project4 {
                 MessageBox::Show("ファイルを読み込む際にエラーが発生しました: " + e->Message, "エラー", MessageBoxButtons::OK, MessageBoxIcon::Error);
             }
         }
-
+        //ファイルの読み込み操作の内容
         void LoadFile() {
             LoadDataFromFile("file1.txt", GlobalData::formData1Array, GlobalData::formData1Index);
             System::Diagnostics::Debug::WriteLine("初期化の確認要素番号：" + GlobalData::formData1Index);
-            GlobalData::LoadDataToListBox(GlobalData::formData1Array, Index, listBox1);
+            //GlobalData::LoadDataToListBox(GlobalData::formData1Array, Index, listBox1);
 
             // ファイル2からデータを読み込んでリストボックス2に表示
             LoadDataFromFile("file2.txt", GlobalData::formData2Array, GlobalData::formData2Index);
-            GlobalData::LoadDataToListBox(GlobalData::formData2Array, Index, listBox2);
+            //GlobalData::LoadDataToListBox(GlobalData::formData2Array, Index, listBox2);
 
             // ファイル3からデータを読み込んでリストボックス3に表示
             LoadDataFromFile("file3.txt", GlobalData::formData3Array, GlobalData::formData3Index);
-            GlobalData::LoadDataToListBox(GlobalData::formData3Array, Index, listBox3);
+           // GlobalData::LoadDataToListBox(GlobalData::formData3Array, Index, listBox3);
 
             // ファイル4からデータを読み込んでリストボックス4に表示
             LoadDataFromFile("file4.txt", GlobalData::formData4Array, GlobalData::formData4Index);
-            GlobalData::LoadDataToListBox(GlobalData::formData4Array, Index, listBox4);
+            //GlobalData::LoadDataToListBox(GlobalData::formData4Array, Index, listBox4);
 
             // ファイル5からデータを読み込んでリストボックス5に表示
             LoadDataFromFile("file5.txt", GlobalData::formData5Array, GlobalData::formData5Index);
-            GlobalData::LoadDataToListBox(GlobalData::formData5Array, Index, listBox5);
+            //GlobalData::LoadDataToListBox(GlobalData::formData5Array, Index, listBox5);
 
             // ファイル6からデータを読み込んでリストボックス6に表示
             LoadDataFromFile("file6.txt", GlobalData::formData6Array, GlobalData::formData6Index);
-            GlobalData::LoadDataToListBox(GlobalData::formData6Array, Index, listBox6);
+            //GlobalData::LoadDataToListBox(GlobalData::formData6Array, Index, listBox6);
         }
+//更新の操作
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
     // ファイル1からデータを読み込んでリストボックス1に表示
     GlobalData::LoadDataToListBox(GlobalData::formData1Array, GlobalData::formData1Index, listBox1);

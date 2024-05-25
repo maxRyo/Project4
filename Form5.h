@@ -100,6 +100,8 @@ namespace Project4 {
 
     private:
         void LoadData() {
+            //‚±‚Ì‰º‚Ì
+            
             String^ selectedFile = GlobalData::name;
             listBox1->Items->Clear();
 
